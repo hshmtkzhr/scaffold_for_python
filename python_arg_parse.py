@@ -5,7 +5,6 @@
 from uroboros import Option, Command
 from uroboros.constants import ExitStatus
 
-
 class RootCommand(Command):
 
     name = 'APPLICATION_NAME'
