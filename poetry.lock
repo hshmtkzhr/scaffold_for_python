@@ -1,0 +1,17 @@
+[[package]]
+category = "main"
+description = "Simple framework for building scalable CLI tool"
+name = "uroboros"
+optional = false
+python-versions = ">=3.5"
+version = "0.2.4"
+
+[metadata]
+content-hash = "4561ac75cfcef130f1a9303533f8497fd998426953124d1b8cd28ba1bd5d313d"
+python-versions = "^3.7"
+
+[metadata.files]
+uroboros = [
+    {file = "uroboros-0.2.4-py3-none-any.whl", hash = "sha256:f47d0e8eeafdb9d128b6e408c546a61fe34e688b7f915f79cc14a1f593626950"},
+    {file = "uroboros-0.2.4.tar.gz", hash = "sha256:f57343ef0c72d114564746edc4cf337cbd30f5407da09b1eba1951d87a819594"},
+]
