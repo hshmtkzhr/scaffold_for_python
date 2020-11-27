@@ -35,8 +35,8 @@ class SubCmdGet(Command):
 
     name = 'get'
 
-    short_description = 'whrite short description here'
-    long_description = 'whrite long description here'
+    short_description = 'write short description here'
+    long_description = 'write long description here'
     options = [CommonOption()]
 
     def build_option(self, parser):
@@ -45,6 +45,47 @@ class SubCmdGet(Command):
     def run(self, args):
         self.print_help()
 
+class SubCmdGetXXX(Command):
+
+    name = 'xxx'
+
+    short_description = 'sub command of get sub command'
+    long_description = '^'
+    options = [CommonOption()]
+
+    def build_option(self, parser):
+        pass
+
+    def run(self, args):
+        self.print_help()
+
+class SubCmdDescribe(Command):
+
+    name = 'describe'
+
+    short_description = 'write short description here'
+    long_description = 'write long description here'
+    options = [CommonOption()]
+
+    def build_option(self, parser):
+        pass
+
+    def run(self, args):
+        self.print_help()
+
+class SubCmdDescribeXXX(Command):
+
+    name = 'xxx'
+
+    short_description = 'sub command of get sub command'
+    long_description = '^'
+    options = [CommonOption()]
+
+    def build_option(self, parser):
+        pass
+
+    def run(self, args):
+        self.print_help()
 
 # common option:
 # --config : config path
@@ -53,36 +94,28 @@ class SubCmdGet(Command):
 # sub-command structure
 # root
 # ├─ get
-# │   └── data
-# └─ show
-#     └── data
+# │   └── xxx
+# └─ describe
+#     └── xxx
 
 # root
 root_cmd = RootCommand()
 
 # 1st tier subcommands
-sub_cmd_crawl = SubCmdCrawl()
 sub_cmd_get = SubCmdGet()
 sub_cmd_describe = SubCmdDescribe()
 
 # 2nd tier subcommands
-sub_cmd_get_vtms     = SubCmdGetVtms()
-sub_cmd_get_vss      = SubCmdGetVirtualServers()
-sub_cmd_get_pools    = SubCmdGetPools()
-sub_cmd_get_monitors = SubCmdGetMonitors()
+sub_cmd_get_xxx     = SubCmdGetXXX()
 
 # add 2nd to 1st tier
-sub_cmd_get.add_command(sub_cmd_get_vtms)
-sub_cmd_get.add_command(sub_cmd_get_vss)
-sub_cmd_get.add_command(sub_cmd_get_pools)
-sub_cmd_get.add_command(sub_cmd_get_monitors)
+sub_cmd_get.add_command(sub_cmd_get_xxx)
 
 # add 1st tier to root
 root_cmd.add_command(
-    sub_cmd_crawl,
     sub_cmd_get,
+    sub_cmd_describe,
 )
-
 
 if __name__ == '__main__':
     exit(root_cmd.execute())
